@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.co2tolerance.ui.Navigation
 import com.example.co2tolerance.ui.screens.HomeScreen
 import com.example.co2tolerance.ui.theme.CO2ToleranceTheme
 
@@ -23,7 +24,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    HomeScreen()
+                    //HomeScreen()
+                    Navigation()
                 }
             }
         }

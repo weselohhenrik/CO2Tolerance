@@ -8,15 +8,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.co2tolerance.Recovery
+import com.example.co2tolerance.ui.Routes
 import com.example.co2tolerance.ui.components.homescreen.ButtonAddNew
 import com.example.co2tolerance.ui.components.homescreen.ListContainer
 import com.example.co2tolerance.ui.components.homescreen.ListItem
 import com.example.co2tolerance.ui.components.homescreen.TodayItem
 
+@Composable
+fun HomeScreen(
+    navController: NavController
+) {
+    HomeScreen {
+        navController.navigate(Routes.MeasureScreen)
+    }
+}
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onClickNew: () -> Unit
+) {
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -27,7 +40,7 @@ fun HomeScreen() {
         )
 
         ButtonAddNew(
-            onClick = { /*TODO*/ },
+            onClick = onClickNew,
             modifier = Modifier
                 .padding(top = 32.dp, bottom = 32.dp)
         )
@@ -60,5 +73,7 @@ fun HomeScreen() {
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen()
+    HomeScreen(
+        onClickNew = {}
+    )
 }

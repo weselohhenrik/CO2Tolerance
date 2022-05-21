@@ -16,10 +16,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.co2tolerance.ui.components.measurescreen.InstructionArea
 
 @Composable
-fun MeasureScreen() {
+fun MeasureScreen(
+    navController: NavController
+) {
+    MeasureScreen(
+        onClickBack = {navController.popBackStack()},
+        onClickStart = {}
+    )
+}
+
+@Composable
+fun MeasureScreen(
+    onClickBack: () -> Unit,
+    onClickStart: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -29,7 +43,7 @@ fun MeasureScreen() {
                 Text("Add new measurement")
             },
             navigationIcon = {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = onClickBack) {
                     Icon(
                         Icons.Filled.ArrowBack,
                         contentDescription = ""
@@ -62,7 +76,7 @@ fun MeasureScreen() {
                 }
 
                 Button(
-                    onClick = {  },
+                    onClick = onClickStart,
                     enabled = buttonEnabled,
                     modifier = Modifier.padding(top = 32.dp)
                 ) {
@@ -113,5 +127,8 @@ fun PreviewButtonStart() {
 @Preview(showBackground = true)
 @Composable
 fun PreviewMeasureScreen() {
-    MeasureScreen()
+    MeasureScreen(
+        {},
+        {}
+    )
 }
