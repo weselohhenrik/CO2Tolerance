@@ -30,20 +30,13 @@ fun ButtonAddNew(
         .clip(CircleShape)
         .border(
             width = 4.dp,
-            color = Color.Green,
+            color = Color.Green, // TODO: update color
             shape = CircleShape
         )
         .clickable {
             onClick.invoke()
         }
     ) {
-        /*Text(
-            text = "Add new measurement",
-            modifier = Modifier
-                .align(Alignment.Center),
-            fontSize = 20.sp,
-            textAlign = TextAlign.Center
-        ) */
         Icon(
             Icons.Filled.Add,
             contentDescription = "Make new Measurement",

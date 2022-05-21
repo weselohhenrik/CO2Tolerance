@@ -10,9 +10,9 @@ enum class Recovery {
 
 fun getRecoveryColor(recovery: Recovery): Color {
     return when (recovery) {
-        Recovery.LOW -> Color.Red
-        Recovery.MEDIUM -> Color.Yellow
-        Recovery.HIGH -> Color.Green
+        Recovery.LOW -> Color.Red // TODO: update color
+        Recovery.MEDIUM -> Color.Yellow // TODO: update color
+        Recovery.HIGH -> Color.Green // TODO: update color
     }
 }
 

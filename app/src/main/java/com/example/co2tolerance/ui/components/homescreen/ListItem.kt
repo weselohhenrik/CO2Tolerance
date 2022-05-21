@@ -1,5 +1,6 @@
 package com.example.co2tolerance.ui.components.homescreen
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,28 +29,33 @@ fun ListItem(
 ) {
     val background = getRecoveryColor(status)
 
-
-    Row(
-        modifier = modifier
-            .padding(vertical = 8.dp)
-            .clip(RoundedCornerShape(8.dp))
-            .border(4.dp, shape = RoundedCornerShape(8.dp), color = background)
-            .padding(vertical = 16.dp)
-            .fillMaxWidth()
+    Surface(
+        shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(width = 4.dp, color = background),
+        elevation = 2.dp,
+        modifier = Modifier.padding(vertical = 8.dp)
     ) {
-        Text(
-            text = "$numSeconds seconds",
-            modifier = Modifier
-                .padding(start = 16.dp),
-            fontSize = 20.sp
-        )
-        Text(
-            text = date,
-            fontSize = 20.sp,
-            modifier = Modifier
-                .padding(start = 32.dp)
-        )
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp)
+        ) {
+            Text(
+                text = "$numSeconds seconds",
+                modifier = Modifier
+                    .padding(start = 16.dp),
+                fontSize = 20.sp
+            )
+            Text(
+                text = date,
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .padding(start = 32.dp)
+            )
+        }
+
     }
+
 
 }
 

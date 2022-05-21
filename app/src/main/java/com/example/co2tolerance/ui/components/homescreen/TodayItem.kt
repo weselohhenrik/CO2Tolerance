@@ -39,44 +39,42 @@ fun TodayItem(
             modifier = Modifier.padding(start = 8.dp, bottom = 4.dp)
         )
 
-            Row(
-                modifier = modifier
-                    .shadow(elevation = 8.dp, shape = RoundedCornerShape(8.dp))
-                    //.padding(vertical = 16.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(background)
-                // .padding(vertical = 8.dp)
-
+            Surface(
+                shape = RoundedCornerShape(8.dp),
+                color = background,
+                elevation = 8.dp
             ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Text(
-                        text = getRecoveryMessage(status),
-                        fontSize = 24.sp,
-                        textAlign = TextAlign.Center,
+                Row {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
-                            .padding(top = 8.dp)
-                    )
-
-                    Row(
-                        modifier = Modifier
-                            .padding(vertical = 8.dp)
+                            .fillMaxWidth()
                     ) {
                         Text(
-                            text = "$numSeconds seconds",
+                            text = getRecoveryMessage(status),
+                            fontSize = 24.sp,
+                            textAlign = TextAlign.Center,
                             modifier = Modifier
-                                .padding(start = 16.dp),
-                            fontSize = 20.sp
+                                .padding(top = 8.dp)
                         )
-                        Text(
-                            text = date,
-                            fontSize = 20.sp,
+
+                        Row(
                             modifier = Modifier
-                                .padding(start = 32.dp)
-                        )
+                                .padding(vertical = 8.dp)
+                        ) {
+                            Text(
+                                text = "$numSeconds seconds",
+                                modifier = Modifier
+                                    .padding(start = 16.dp),
+                                fontSize = 20.sp
+                            )
+                            Text(
+                                text = date,
+                                fontSize = 20.sp,
+                                modifier = Modifier
+                                    .padding(start = 32.dp)
+                            )
+                        }
                     }
                 }
             }
